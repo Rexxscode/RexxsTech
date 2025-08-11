@@ -1,0 +1,1504 @@
+ 
+        html {
+            scroll-behavior: smooth;
+        }
+body {
+    padding-top: 56px; 
+    background: linear-gradient(to right , #1a1a1a, #2e2e2e, #454545); /* Elegant dark gradient */
+    font-family: 'Arial', sans-serif; 
+}
+
+.navbar-custom {
+    background-color: #3B4F6B; /* Warna latar belakang navbar */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Bayangan pada navbar */
+    transition: all 0.4s ease; /* Transisi untuk semua perubahan */
+}
+
+.navbar-custom.scrolled {
+    background-color: #34495e; /* Warna navbar saat di-scroll */
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); /* Bayangan saat di-scroll */
+    transform: translateY(-5px); /* Efek mengangkat saat scroll */
+}
+
+.navbar-custom .navbar-brand {
+    color: #e74c3c; /* Warna teks merek */
+    font-weight: bold; /* Bold untuk teks merek */
+    font-size: 1.75rem; /* Ukuran font merek */
+    transition: color 0.3s; /* Transisi untuk efek hover */
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #ffdd57; /* Warna saat hover */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* Warna teks tautan */
+    position: relative; /* Posisi relatif untuk efek hover */
+    padding: 10px 15px; /* Padding untuk elemen tautan */
+    transition: color 0.3s, transform 0.3s; /* Transisi warna dan transformasi saat hover */
+    font-weight: 500; /* Mengatur ketebalan font */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+    color: #ffdd57; /* Warna saat hover */
+    transform: translateY(-3px); /* Efek angkat saat hover */
+}
+
+.navbar-custom .navbar-nav .nav-link::after {
+    content: ""; /* Membuat elemen pseudo untuk garis bawah */
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Jarak garis bawah dari teks */
+    height: 2px; /* Tinggi garis bawah */
+    background-color: #e74c3c; /* Warna garis bawah */
+    width: 0; /* Awalnya tidak terlihat */
+    transition: width 0.4s ease, left 0.4s ease; /* Transisi untuk efek hover */
+}
+
+.navbar-custom .navbar-nav .nav-link:hover::after {
+    width: 100%; /* Menampilkan garis bawah saat hover */
+    left: 0; /* Memindahkan posisi garis bawah */
+}
+
+/* Garis pemisah untuk navbar */
+.navbar-custom .navbar-nav .nav-item {
+    border-right: 1px solid rgba(255, 255, 255, 0.3); /* Garis pemisah */
+}
+
+.navbar-custom .navbar-nav .nav-item:last-child {
+    border-right: none; /* Menghilangkan garis pemisah di item terakhir */
+}
+
+/* Warna ikon toggle */
+.navbar-toggler {
+    border-color: transparent; /* Menghilangkan border toggle */
+    transition: background-color 0.3s; /* Transisi warna saat hover */
+    outline: none; /* Menghilangkan outline */
+}
+
+.navbar-toggler-icon {
+    display: none; /* Sembunyikan default icon */
+}
+
+/* Gaya untuk ikon toggle */
+.navbar-toggler .fa-bars {
+    color: #e74c3c; /* Warna ikon toggle */
+    font-size: 1.5rem; /* Ukuran ikon toggle */
+    transition: transform 0.3s; /* Transisi untuk efek rotate */
+}
+
+.navbar-toggler.collapsed .fa-bars {
+    transform: rotate(0); /* Rotasi awal */
+}
+
+.navbar-toggler:not(.collapsed) .fa-bars {
+    transform: rotate(90deg); /* Rotasi saat tertekan */
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(231, 76, 60, 0.5); /* Warna saat hover */
+}
+
+/* Responsif untuk navbar */
+@media (max-width: 576px) {
+    .navbar-nav {
+        margin-top: 15px; /* Memberikan ruang pada navbar di mobile */
+    }
+    .navbar-custom .navbar-brand {
+        font-size: 1.5rem; /* Ukuran font merek untuk mobile */
+    }
+    .navbar-custom .navbar-nav .nav-link {
+        padding: 10px 5px; /* Padding untuk elemen tautan di mobile */
+    }
+}
+
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative; 
+    flex-direction: column;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column; /* Default untuk mobile */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Gaya untuk gambar profil */
+.profile-img {
+    width: 400px; /* Ukuran gambar untuk desktop */
+    border-radius: 50%; /* Spasi untuk gambar di sebelah teks */
+    transition: transform 0.4s ease, filter 0.4s ease; /* Menambahkan transisi filter */
+    margin-top: 2rem;
+}
+
+.profile-img:hover {
+    transform: scale(1.1); /* Membesarkan gambar saat hover */
+    filter: brightness(1.1); /* Mencerahkan gambar saat hover */
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Mengubah arah untuk desktop */
+    }
+
+    .text-content {
+        text-align: left; /* Rata kiri untuk teks di desktop */
+    }
+
+    .profile-img {
+        margin-right: 30px; /* Jarak gambar di desktop */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .profile-img {
+        width: 300px;
+        margin-bottom: 2rem;
+    }
+}
+
+h1, p {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Efek bayangan pada teks */
+    animation: fadeIn 1s ease forwards; /* Animasi saat teks muncul */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Menggeser teks dari bawah */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efek hover pada judul */
+h1 {
+    animation: titleEffect 1s ease forwards; /* Menggunakan animasi untuk judul */
+}
+
+@keyframes titleEffect {
+    0% {
+        transform: scale(0.8); /* Mulai dengan ukuran lebih kecil */
+        opacity: 0; /* Mulai dari transparan */
+    }
+    50% {
+        transform: scale(1.1); /* Sedikit membesar */
+        opacity: 1; /* Menjadi tidak transparan */
+    }
+    100% {
+        transform: scale(1); /* Kembali ke ukuran normal */
+    }
+}
+
+h1:hover {
+    color:  #ffdd57; /* Mengubah warna saat hover */
+    text-shadow: 0 4px 15px rgba(231, 76, 60, 0.5); /* Menambahkan bayangan saat hover */
+    transform: scale(1.05); /* Membesar sedikit saat hover */
+    transition: color 0.3s ease, transform 0.3s ease; /* Transisi untuk hover */
+}
+
+/* Efek hover pada paragraf */
+p {
+    transition: 0.3s ease; /* Transisi untuk hover */
+}
+
+p:hover {
+    transform: scale(1.5);
+}
+
+/* Animasi tambahan untuk tombol */
+.buttons a {
+    animation: fadeIn 1s ease forwards; /* Animasi saat tombol muncul */
+}
+
+/* Efek hover pada tombol */
+.btn-danger, .btn-outline-light {
+    position: relative;
+    overflow: hidden; /* Menyembunyikan elemen yang melampaui batas */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
+}
+
+/* Animasi hover pada tombol utama */
+.btn-danger:hover {
+    background-color: #e74c3c; /* Warna saat hover */
+    transform: scale(1.1) rotate(3deg); /* Membesarkan dan sedikit memutar tombol */
+}
+
+/* Animasi hover pada tombol outline */
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Warna latar belakang saat hover */
+    border-color: rgba(255, 255, 255, 0.8); /* Warna border saat hover */
+    color: #fff; /* Memastikan teks tetap putih */
+    transform: scale(1.05) rotate(-3deg); /* Membesarkan dan sedikit memutar tombol */
+}
+
+/* Efek bayangan dan transisi untuk kartu */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk kartu */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Mengangkat kartu saat hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan saat hover */
+}
+
+/* Gaya untuk tombol sosial media */
+.social-media a {
+    color: white;
+    margin: 0 10px; /* Jarak antar ikon sosial media */
+    transition: transform 0.3s ease, color 0.3s; /* Transisi untuk transformasi */
+}
+
+.social-media a:hover {
+    color: #e74c3c; /* Mengubah warna saat hover */
+    transform: rotate(360deg); /* Memutar ikon saat hover */
+}
+
+
+
+
+/* Gaya untuk konten yang akan ditoggle */
+.navbar-collapse {
+    max-height: 0; /* Tinggi maksimal saat tertutup */
+    transition: max-height 0.4s ease, opacity 0.4s ease; /* Transisi untuk tinggi dan opasitas */
+}
+
+.navbar-collapse.hide {
+    max-height: 0; /* Kembalikan ke tinggi 0 saat menyembunyikan */
+    opacity: 0; /* Sembunyikan konten */
+}
+
+.navbar-collapse.show {
+    max-height: 500px; /* Sesuaikan dengan tinggi maksimum konten yang ingin ditampilkan */
+    opacity: 1; /* Tampilkan konten */
+}
+
+.title {
+    font-weight: bold;
+}
+.slider-container:hover {
+    animation-play-state: paused; /* Menghentikan animasi saat kursor berada di atas slider */
+}
+/* Software Slider */
+.software-slider {
+    width: 56%; /* Sesuaikan lebar dengan kebutuhan */
+    overflow: hidden; /* Sembunyikan bagian yang keluar dari kontainer */
+    padding: 20px 0;
+    margin-top: 40px; /* Jarak antara kontainer utama dan slider */
+}
+
+@media (max-width: 768px) {
+    .software-slider {
+        width: 100%;
+    }
+}
+
+/* Wrapper untuk semua item slider */
+.slider-wrapper {
+    display: flex;
+    width: max-content;
+    animation: slideRight 15s linear infinite;
+}
+
+/* Gaya item slider */
+.slider-item {
+    flex: 0 0 auto;
+    width: 150px;
+    display: flex;
+    justify-content: center; /* Memastikan gambar berada di tengah */
+    align-items: center;
+}
+
+/* Mengatur ukuran gambar agar tidak terlalu besar dan tetap proporsional */
+.slider-item img {
+    max-width: 100%; /* Menyesuaikan gambar dengan lebar container */
+    height: auto; /* Memastikan proporsi gambar tetap terjaga */
+    max-height: 80px; /* Menetapkan tinggi maksimum agar gambar tidak terlalu besar */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: skewX(-5deg);
+}
+
+/* Efek hover untuk gambar di slider */
+.slider-item:hover img {
+    transform: scale(1.1); /* Membesarkan gambar sedikit saat di-hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Menambahkan bayangan saat di-hover */
+}
+
+
+/* Animasi geser ke kanan */
+@keyframes slideRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.typedtext {
+    color: crimson;
+    font-weight: bold;
+}
+  
+
+/* Strange About Section */
+.strange-about-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strange-about-container {
+    width: 1200px; /* Mengatur lebar menjadi 100% */
+    padding: 0 1rem; /* Tambahkan padding jika diperlukan */
+    max-width: none; /* Menghapus batasan max-width jika ada */
+    margin: 0; /* Hapus margin jika ada */
+}
+
+
+.strange-title {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.adzka {
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.strange-profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    transition: transform 0.3s ease;
+}
+
+.strange-profile-img {
+    max-width: 400px;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: fadeInLeft 1s forwards;
+}
+
+.strange-profile-info {
+    flex: 1;
+    margin-left: 2rem;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: fadeInRight 1s forwards;
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.strange-profile-info:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+}
+
+.strange-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.strange-description {
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+
+
+
+.strange-social-media {
+    margin-top: 1.5rem;
+}
+
+.strange-social-media a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.strange-social-media a:hover {
+    color: #0066cc;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+.strange-download-cv {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #0066cc;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.strange-download-cv:hover {
+    background-color: #004b99;
+    transform: scale(1.1);
+    text-decoration: none;
+    color: white;
+}
+
+.strange-download-cv i {
+    margin-right: 0.5rem;
+}
+
+/* Responsive for desktop and tablet */
+@media (min-width: 768px) {
+    .strange-profile-section {
+        flex-direction: row-reverse ; /* Gambar di kiri, teks di kanan */
+    }
+
+    .strange-profile-img {
+        margin-right: 2rem;
+        transform: translateX(-100px);
+    }
+
+    .strange-profile-info {
+        text-align: left;
+        margin-left: 0;
+        transform: translateX(100px);
+    }
+
+    .flex {
+        justify-content: flex-start;
+    }
+}
+
+/* Responsive for mobile */
+@media (max-width: 767px) {
+    .strange-profile-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .strange-profile-img {
+        max-width: 200px;
+        margin: 0 auto 1.5rem; /* Gambar di tengah dan di atas */
+    }
+
+    .strange-profile-info {
+        margin: 0;
+        text-align: center;
+    }
+
+    .strange-description {
+        text-align: center;
+    }
+
+    .flex {
+        justify-content: center;
+    }
+}
+
+/* Education Section */
+.education-section {
+    padding: 80px 0;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.education-container {
+    width: 85%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.education-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #fff;
+    position: relative;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.education-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: #fff;
+    display: block;
+    margin: 10px auto;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 50px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.timeline-item:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+.timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.timeline-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    width: 45%;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.degree {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.institution, .year {
+    font-size: 1.2rem;
+    color: #ddd;
+    display: block;
+}
+
+.description {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #f0f0f0;
+    line-height: 1.8;
+}
+
+/* Timeline Line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border: 4px solid #007bff;
+    display: none;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.timeline-icon i {
+    font-size: 1.5rem;
+    color: #007bff;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .timeline-content {
+        width: 80%;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+        text-align: left;
+    }
+
+    .timeline::before {
+        left: calc(50% - 3px);
+    }
+}
+
+@media (max-width: 576px) {
+    .education-title {
+        font-size: 2.5rem;
+    }
+
+    .timeline-content {
+        padding: 20px;
+        width: 90%;
+    }
+}
+
+/* Same styles as before, with the additional hover and transition animations */
+.timeline-item:hover .timeline-content {
+    transform: scale(1.1) rotate(1deg);
+
+}
+
+.timeline-item .timeline-icon i {
+    transition: transform 0.5s ease;
+}
+
+.timeline-item:hover .timeline-icon i {
+    transform: rotate(360deg);
+}
+
+/* Parallax effect for background */
+.education-section {
+    padding: 80px 0;
+    color: #fff;
+}
+
+.skills-section {
+   
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Text shadow for depth */
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+    gap: 30px; /* Space between cards */
+    padding: 0 20px; /* Padding for grid */
+}
+
+@media (min-width: 768px) { /* Tablet */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+    }
+}
+
+@media (min-width: 1024px) { /* Laptop and larger */
+    .skills-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for laptops */
+    }
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent card background */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* To contain pseudo-elements */
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    /*Hoveranimationforinteractivity*/box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    -webkit-transform: translateY(-10px) scale(1.05);
+    -moz-transform: translateY(-10px) scale(1.05);
+    -ms-transform: translateY(-10px) scale(1.05);
+    -o-transform: translateY(-10px) scale(1.05);
+}
+
+.skill-icon {
+    font-size: 4rem; /* Increased icon size */
+    color: #00d9ff; /* Icon color */
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.skill-icon:hover {
+    transform: rotate(20deg) scale(1.2); /* Icon rotation and scaling on hover */
+}
+
+.skill-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.skill-card h3:after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background: #f8f9fa; /* Line under the title */
+    margin: 10px auto 0; /* Center the line */
+    border-radius: 5px;
+}
+
+.skill-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    transition: color 0.3s ease; /* Smooth color transition for the text */
+    font-weight: bold;
+}
+
+.skill-card:hover p {
+    color: #007bff; /* Change text color on card hover */
+}
+
+.experience-section-custom {
+    color: #fff;
+    padding: 80px 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-custom {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 900px;
+}
+
+.timeline-item-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item-custom:nth-child(even) {
+    align-items: flex-end;
+}
+
+.timeline-dot-custom {
+    width: 16px;
+    height: 16px;
+    background-color: #00bfff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+    animation: pulse 1.5s infinite; /* Pulse effect */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+.timeline-content-custom {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 1s forwards; /* Smooth fade-in */
+}
+
+.timeline-item-custom:hover .timeline-content-custom {
+    transform: scale(1.08);
+    box-shadow: 0 20px 45px rgba(0, 191, 255, 0.5);
+}
+
+.timeline-item-custom h3 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #00bfff;
+    text-transform: uppercase;
+}
+
+.timeline-item-custom span {
+    font-size: 1rem;
+    color: #00bfff;
+    margin-bottom: 15px;
+}
+
+.timeline-item-custom p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Title bounce animation */
+@keyframes title-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Smooth fade-in-up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-item-custom, .timeline-item-custom:nth-child(even) {
+        align-items: center;
+    }
+
+    .timeline-content-custom {
+        text-align: center;
+        width: 100%;
+    }
+
+    .timeline-custom::before {
+        left: 5%;
+    }
+
+    .timeline-dot-custom {
+        left: 50%;
+    }
+}
+
+.vision-mission-section {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+    color: white;
+    text-align: center;
+   
+}
+
+.vision-mission-title {
+    text-align: center;
+    font-size: 3rem;
+    margin: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #00d9ff;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: slideIn 1.2s ease-in-out;
+    font-weight: bold;
+}
+
+.vision-mission-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 50px;
+    padding: 0 10%;
+}
+
+.vision-box, .mission-box {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.vision-box:hover, .mission-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+}
+
+.vision-mission-subtitle {
+    font-size: 2rem;
+    color: #00d9ff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.vision-box p, .mission-box p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #f0f0f0;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.vision-icon, .mission-icon {
+    font-size: 3rem;
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    margin-top: 20px;
+    display: inline-block;
+    color: #00d9ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.learn-more::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #00d9ff;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.learn-more:hover {
+    color: #fff;
+}
+
+/* Background animasi interaktif */
+#animatedBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .vision-mission-content {
+        flex-direction: column;
+        padding: 0 5%;
+    }
+}
+
+.testimonial-section-custom {  
+    padding: 80px 20px;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.testimonial-title-custom {
+    font-size: 3rem;
+    margin-bottom: 50px;
+    color: #00bfff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #00bfff, #00ff99);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: title-fadeIn 1s ease-in-out;
+}
+
+@keyframes title-fadeIn {
+    from { opacity: 0; transform: translateY(-50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-wrapper-custom {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.testimonial-card-custom {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-card-custom:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 45px rgba(0, 191, 255, 0.7);
+}
+
+.testimonial-avatar-custom {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 3px solid #00bfff;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-avatar-custom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-card-custom:hover .testimonial-avatar-custom {
+    transform: scale(1.1);
+}
+
+.testimonial-content-custom {
+    text-align: center;
+    color: #e0e0e0;
+    padding: 10px 20px;
+}
+
+.testimonial-content-custom p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-content-custom h4 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #00bfff;
+}
+
+.testimonial-content-custom span {
+    font-size: 1rem;
+    color: #00ff99;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .testimonial-wrapper-custom {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-wrapper-custom {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Background animation */
+#testimonialBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.1), transparent);
+    animation: moveBackground 10s infinite linear;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.social-media-section-custom {
+    padding: 80px 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-media-title-custom {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #00bfff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(90deg, #00bfff, #00ff99);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: title-fadeIn 1s ease-in-out;
+}
+
+.social-media-wrapper-custom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.social-link-custom {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 2rem;
+    color: #fff;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.social-link-custom:hover {
+    transform: scale(1.2);
+    box-shadow: 0 20px 45px rgba(0, 191, 255, 0.6);
+    background: linear-gradient(135deg, #00bfff, #00ff99);
+}
+
+.social-link-custom i {
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.social-link-custom:hover i {
+    color: #000;
+}
+
+/* Circle pulse animation */
+.social-link-custom::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    animation: pulse 2s infinite;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.social-link-custom:hover::before {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-media-wrapper-custom {
+        gap: 15px;
+        display: flex;
+    }
+
+    .social-link-custom {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+.contact-section-custom {
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-title-custom {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    animation: title-fadeIn 1s ease-in-out;
+}
+
+.contact-form-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group-custom {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group-custom label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.form-group-custom input, 
+.form-group-custom textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.form-group-custom input:focus, 
+.form-group-custom textarea:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+}
+
+.contact-button-custom {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #00bfff;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button-custom:hover {
+    background: #00ff99;
+    transform: scale(1.05);
+}
+
+.social-media-icons-custom {
+    margin-top: 30px;
+}
+
+.social-icon-custom {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.social-icon-custom:hover {
+    transform: scale(1.2);
+}
+
+/* Animation for title fade-in */
+@keyframes title-fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .contact-title-custom {
+        font-size: 2.5rem;
+    }
+
+    .contact-button-custom {
+        font-size: 1rem;
+    }
+
+    .social-icon-custom {
+        font-size: 1.5rem;
+    }
+}
+
+
+.project-section-custom {
+    /*background: linear-gradient(135deg, #0d2b28, #202b30, #00333d);  Emerald green with dark black-gray */
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.project-title-custom {
+    font-size: 3rem;
+    margin: 40px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    animation: title-bounce 1s ease-in-out;
+}
+
+.project-container-custom {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: TRANSPARENT TRANSPARENT;
+}
+
+.project-slot-custom {
+    position: relative;
+    min-width: 300px;
+    height: 200px;
+    scroll-snap-align: start;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-slot-custom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
+    -moz-transition: transform 0.3s ease;
+    -ms-transition: transform 0.3s ease;
+    -o-transition: transform 0.3s ease;
+    border: 1px solid #004b99;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.project-slot-custom:hover img {
+    transform: scale(1.1); /* Zoom in image on hover */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-slot-custom:hover .overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.overlay h3 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+
+
+/* Animation for title bounce */
+@keyframes title-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@media (max-width: 768px) {
+    .project-slot-custom {
+        min-width: 200px;
+    }
+
+    .project-title-custom {
+        font-size: 2.5rem;
+    }
+}
+
+
+
